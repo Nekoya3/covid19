@@ -1,6 +1,6 @@
 <template>
   <v-col class="DataCard" cols="12" md="6">
-    <time-bar-chart
+    <current-patients-chart
       :chart-data="currentPatientsGraph"
       :date="convertToDateFromData(current_patients.last_update)"
       :default-data-kind="'cumulative'"
@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import TimeBarChart from '@/components/TimeBarChart.vue'
 import formatCurrentPatientsGraph from '@/utils/formatCurrentPatientsGraph'
 import convertToDateFromData from '@/utils/convertToDateFromData'
+import CurrentPatientsChart from '@/components/CurrentPatientsChart'
 export default {
   name: 'CurrentPatientsCard',
   components: {
-    TimeBarChart
+    CurrentPatientsChart
   },
   data() {
     return {
