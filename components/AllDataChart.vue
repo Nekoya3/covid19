@@ -219,27 +219,43 @@ export default {
           }),
           datasets: [
             {
-              label: this.dataKind,
+              label: '患者数',
               data: this.chartData.map(d => {
                 return d.transitions[0]
               }),
-              backgroundColor: '#1c8df0',
+              backgroundColor: '#0017f0',
               borderWidth: 0
             },
             {
-              label: this.dataKind,
+              label: '軽症者',
               data: this.chartData.map(d => {
                 return d.transitions[1]
               }),
-              backgroundColor: '#1268d8',
+              backgroundColor: '#f5af00',
               borderWidth: 0
             },
             {
-              label: this.dataKind,
+              label: '重症者',
               data: this.chartData.map(d => {
                 return d.transitions[2]
               }),
-              backgroundColor: '#2197f5',
+              backgroundColor: '#f50005',
+              borderWidth: 0
+            },
+            {
+              label: '死亡数',
+              data: this.chartData.map(d => {
+                return d.transitions[3]
+              }),
+              backgroundColor: '#000000',
+              borderWidth: 0
+            },
+            {
+              label: '治療終了者',
+              data: this.chartData.map(d => {
+                return d.transitions[4]
+              }),
+              backgroundColor: '#2df500',
               borderWidth: 0
             }
           ]
@@ -255,15 +271,15 @@ export default {
             data: this.chartData.map(d => {
               return d.cumulatives[0]
             }),
-            backgroundColor: '#1c8df0',
+            backgroundColor: '#0017f0',
             borderWidth: 0
           },
           {
-            label: '軽症・中等症者',
+            label: '軽症者',
             data: this.chartData.map(d => {
               return d.cumulatives[1]
             }),
-            backgroundColor: '#1268d8',
+            backgroundColor: '#f5af00',
             borderWidth: 0
           },
           {
@@ -271,7 +287,23 @@ export default {
             data: this.chartData.map(d => {
               return d.cumulatives[2]
             }),
-            backgroundColor: '#20a3ff',
+            backgroundColor: '#f50005',
+            borderWidth: 0
+          },
+          {
+            label: '死亡者',
+            data: this.chartData.map(d => {
+              return d.cumulatives[3]
+            }),
+            backgroundColor: '#000000',
+            borderWidth: 0
+          },
+          {
+            label: '治療終了者',
+            data: this.chartData.map(d => {
+              return d.cumulatives[4]
+            }),
+            backgroundColor: '#2df500',
             borderWidth: 0
           }
         ]
@@ -348,6 +380,11 @@ export default {
   methods: {
     sliderUpdate(sliderValue) {
       this.graphRange = sliderValue
+    },
+    sum(arr) {
+      return arr.reduce(function(prev, current) {
+        return prev + current
+      })
     },
     formatDayBeforeRatio(dayBeforeRatio) {
       switch (Math.sign(dayBeforeRatio)) {
