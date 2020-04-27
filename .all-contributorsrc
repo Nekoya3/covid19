@@ -5,6 +5,15 @@
   "imageSize": 100,
   "commit": false,
   "contributors": [
+    {
+      "login": "Nekoya3",
+      "name": "Taiyu Yoshizawa",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17000370?v=4",
+      "profile": "https://github.com/Nekoya3",
+      "contributions": [
+        "design"
+      ]
+    }
   ],
   "contributorsPerLine": 7,
   "projectName": "covid19",
